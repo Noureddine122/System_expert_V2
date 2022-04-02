@@ -19,6 +19,7 @@ public class Diagnostic implements Serializable {
     private LocalDate date;
     private double Temperature;
     private Region region;
+    Vector<Maladie_chronique> maladies;
 
     public double getTemperature() {
         return Temperature;
@@ -52,15 +53,22 @@ public class Diagnostic implements Serializable {
 
     }
 
-    public Diagnostic(Vector<Symptoms> symptoms, double res, Client c, LocalDate date, double temperature, Region r) {
+    public Vector<Maladie_chronique> getMaladies() {
+        return maladies;
+    }
+
+    public void setMaladies(Vector<Maladie_chronique> maladies) {
+        this.maladies = maladies;
+    }
+
+    public Diagnostic(Vector<Symptoms> symptoms, double res, Client c, LocalDate date, double temperature, Region r, Vector<Maladie_chronique> maladie) {
         Mysymtoms = symptoms;
         resultat = res;
         MyClient = c;
         this.date = date;
         this.Temperature = temperature;
         this.region = r;
-
-
+        maladies = maladie;
     }
 
     public int getNum_diag() {

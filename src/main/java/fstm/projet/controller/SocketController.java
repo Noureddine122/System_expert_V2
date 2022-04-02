@@ -1,25 +1,12 @@
 package fstm.projet.controller;
 
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.ObjectInputStream;
-import java.io.ObjectOutputStream;
-import java.io.OutputStream;
-import java.net.Socket;
-
-import fstm.projet.model.bo.Client;
-import fstm.projet.model.bo.Diagnostic;
-import fstm.projet.model.bo.Docteur;
-import fstm.projet.model.bo.DroolsTest;
-import fstm.projet.model.bo.Region;
-import fstm.projet.model.bo.SocketInscription;
-import fstm.projet.model.bo.SocketUpdate;
-import fstm.projet.model.bo.Socketinter;
-import fstm.projet.model.bo.Symptoms;
+import fstm.projet.model.bo.*;
 import fstm.projet.model.dao.DAOClient;
-import fstm.projet.model.dao.DAODiagnostic;
 import fstm.projet.model.dao.DAORegion;
 import fstm.projet.model.dao.DAOSymptom;
+
+import java.io.*;
+import java.net.Socket;
 
 public class SocketController implements Runnable {
     private Socket socket;
@@ -97,14 +84,16 @@ public class SocketController implements Runnable {
         DroolsTest d = new DroolsTest();
         System.out.println(socke.Mysymtoms.toString());
         Docteur doc = new Docteur(1, "achiban", "nourddine");
-        new DAOClient().updateMaladie(socke.MyClient.getMaladies(), socke.MyClient.getCmptCompte().getEmail());
+       // new DAOClient().updateMaladie(socke.mald, socke.MyClient.getCmptCompte().getEmail());
 
         Diagnostic diag = new Diagnostic(1, socke.MyClient, socke.Mysymtoms, doc);
         diag.setTemperature(socke.temperaturee);
         diag.setRegion(socke.region);
+        diag.setMaladies(socke.mald);
 
         System.out.println(diag);
         System.out.println(diag.MyClient);
+        System.out.println(diag.getMaladies());
 
 
         //Serialization

@@ -105,8 +105,8 @@ public static void rempliTable(DefaultTableModel model,Client c) {
     }
 
     public static void diagoniser(Client c, Vector<Symptoms> sys, Vector<Maladie_chronique> mal, double temperature, Region r) throws IOException, ClassNotFoundException {
-        c.setMaladies(mal);
-        Socketinter socketinter = new Socketinter(sys, c, temperature, r);
+       // c.setMaladies(mal);
+        Socketinter socketinter = new Socketinter(sys, c, temperature, r,mal);
         System.out.println(c.getCmptCompte().getEmail());
         Socket socket = new Socket(host, port);
         System.out.println("Connected.................");
@@ -267,7 +267,7 @@ return daoClient.Authentification(email, passString);*/
             font.setColor(BaseColor.LIGHT_GRAY);
             document.add(new Chunk("\nliste des maladies chronique\n ", font));
             String symString = "  ";
-            for (Maladie_chronique s : c.getDiagnostics().get(idr - 1).MyClient.getMaladies()) {
+            for (Maladie_chronique s : c.getDiagnostics().get(idr - 1).getMaladies()) {
                 symString = symString + "     " + s.getNom();
             }
             document.add(new Paragraph(symString));

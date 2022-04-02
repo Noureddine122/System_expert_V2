@@ -38,7 +38,6 @@ public class DAOClient implements IDAOClient {
                 .append("prenom", client.getPrenom())
                 .append("Sexe", client.getSexe())
                 .append("Age", client.getage())
-                .append("Maladie_chronique", diagnostiques)
                 .append("Email", client.getCmptCompte().getEmail())
                 .append("Password", client.getCmptCompte().getPassword())
                 .append("Diagnostiques", diagnostiques);
@@ -51,7 +50,7 @@ public class DAOClient implements IDAOClient {
 
     @Override
     public void updateMaladie(Vector<Maladie_chronique> mal, String email) {
-        DB baseDb = Connexion.getConnex();
+        /*DB baseDb = Connexion.getConnex();
         DBCollection collection = baseDb.getCollection("Client");
 
         ArrayList<DBObject> maladiesArrayList = new ArrayList<DBObject>();
@@ -63,7 +62,7 @@ public class DAOClient implements IDAOClient {
         BasicDBObject newDoc = new BasicDBObject();
         newDoc.append("$set", new BasicDBObject().append("Maladie_chronique", maladiesArrayList));
         BasicDBObject seaBasicDBObject = new BasicDBObject().append("Email", email);
-        collection.update(seaBasicDBObject, newDoc);
+        collection.update(seaBasicDBObject, newDoc);*/
     }
 
     @Override
@@ -136,31 +135,30 @@ public class DAOClient implements IDAOClient {
                 cmpCompte.setPassword(jsonObject.getString("Password"));
                 cli.setCmptCompte(cmpCompte);
                 Vector<Maladie_chronique> chroniques = new Vector<>();
-                JSONArray json3 = null;
-                try {
-                    json3 = jsonObject.getJSONArray("Maladie_chronique");
-                } catch (Exception e) {
-                    // TODO Auto-generated catch block
-                    e.printStackTrace();
-                }
-                for (int j = 0; j < Objects.requireNonNull(json3).length(); j++) {
 
-                    chroniques.add(new Maladie_chronique(json3.getJSONObject(j).getString("Nom_maladie")));
-                }
                 // System.out.println(chroniques.get(0));
 
-                cli.setMaladies(chroniques);
+                //cli.setMaladies(chroniques);
                 JSONArray json = jsonObject.getJSONArray("Diagnostiques");
                 System.out.println(json);
+
                 for (int i = 0; i < json.length(); i++) {
+
+                    JSONArray json3 = json.getJSONObject(i).getJSONArray("Maladies_Chronique");
+                    for (int j = 0; j < Objects.requireNonNull(json3).length(); j++) {
+
+                        chroniques.add(new Maladie_chronique(json3.getJSONObject(j).getString("Nom_maladie")));
+                    }
+
+                    //////////// Symptoms
                     JSONArray json2 = json.getJSONObject(i).getJSONArray("Mysymtoms");
                     Vector<Symptoms> symptoms = new Vector<>();
                     for (int j = 0; j < json2.length(); j++) {
-
+                        System.out.println(json2.getJSONObject(j).getInt("_idSy"));
                         symptoms.add(new Symptoms(json2.getJSONObject(j).getString("designation"), json2.getJSONObject(j).getInt("_idSy")));
                     }
 
-                    diagnostics.add(new Diagnostic(symptoms, json.getJSONObject(i).getDouble("resultat"), cli, LocalDate.parse(json.getJSONObject(i).getString("date")), json.getJSONObject(i).getDouble("Temperature"), new DAORegion().findbyidRegion(json.getJSONObject(i).getInt("Region"))));
+                    diagnostics.add(new Diagnostic(symptoms, json.getJSONObject(i).getDouble("resultat"), cli, LocalDate.parse(json.getJSONObject(i).getString("date")), json.getJSONObject(i).getDouble("Temperature"), new DAORegion().findbyidRegion(json.getJSONObject(i).getInt("Region")),chroniques));
 
 
                 }
@@ -187,7 +185,13 @@ public class DAOClient implements IDAOClient {
             DBObject sYSDbObject = new BasicDBObject("designation", s.designation).append("_idSy", s.id_Sym);
             symptomsArrayList.add(sYSDbObject);
         }
+        ArrayList<DBObject> maladies = new ArrayList<DBObject>();
+        for (Maladie_chronique s : diag.getMaladies()) {
+            DBObject sYSDbObject = new BasicDBObject("Nom_maladie", s.getNom());
+            maladies.add(sYSDbObject);
+        }
         DBObject doc = new BasicDBObject("Mysymtoms", symptomsArrayList)
+                .append("Maladies_Chronique",maladies)
                 .append("resultat", diag.get_possi_presence())
                 .append("Temperature", diag.getTemperature())
                 .append("Region", diag.getRegion().getId_RE())

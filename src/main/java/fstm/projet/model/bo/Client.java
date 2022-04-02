@@ -26,7 +26,6 @@ public class Client implements Serializable {
 
      double Tempareture;*/
     Compte cmptCompte;
-    Vector<Maladie_chronique> maladies;
 
 
     public Compte getCmptCompte() {
@@ -88,13 +87,6 @@ public class Client implements Serializable {
         return Nom;
     }
 
-    public Vector<Maladie_chronique> getMaladies() {
-        return maladies;
-    }
-
-    public void setMaladies(Vector<Maladie_chronique> maladies) {
-        this.maladies = maladies;
-    }
 
     public void setNom(String nom) {
         Nom = nom;
@@ -142,7 +134,6 @@ public class Client implements Serializable {
         }
         this.age = age;
         cmptCompte = new Compte(email, password);
-        maladies = new Vector<>();
 
     }
 

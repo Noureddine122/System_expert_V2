@@ -91,7 +91,7 @@ rule "Regle 9"
     when
      G:Diagnostic(get_possi_presence() >= 0.6   )
       Docteur(isRemplie() == false) from G.d
-    Maladie_chronique(getId_maladie()==1 || getId_maladie()==2 || getId_maladie()==3  ) from G.MyClient.maladies
+    Maladie_chronique(getId_maladie()==1 || getId_maladie()==2 || getId_maladie()==3  ) from G.maladies
      
     then
        
@@ -241,7 +241,7 @@ rule "Regle 24"
     when
      G:Diagnostic(get_possi_presence() >= 0.6   )
       Docteur(isRemplie() == false) from G.d
-    Maladie_chronique(getId_maladie()==1 || getId_maladie()==2 || getId_maladie()==3  ) from G.MyClient.maladies
+    Maladie_chronique(getId_maladie()==1 || getId_maladie()==2 || getId_maladie()==3  ) from G.maladies
      
     then
        

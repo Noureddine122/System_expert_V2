@@ -1,8 +1,7 @@
 package fstm.projet.model.dao;
 
-import java.net.UnknownHostException;
-
-import com.mongodb.*;
+import com.mongodb.DB;
+import com.mongodb.MongoClient;
 
 
 /**

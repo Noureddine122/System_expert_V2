@@ -1,9 +1,8 @@
 package fstm.projet.model.dao;
 
-import java.util.ArrayList;
-
-import fstm.projet.model.bo.Region;
 import fstm.projet.model.bo.Symptoms;
+
+import java.util.ArrayList;
 
 public interface IDAOSymptom {
     public void insert(Symptoms s);

@@ -1,25 +1,20 @@
 package fstm.projet.view;
 
-import java.awt.EventQueue;
-import java.awt.event.ActionEvent;
-import java.io.IOException;
-import java.util.Vector;
-import javax.swing.DefaultListModel;
-import javax.swing.JFrame;
-import javax.swing.JList;
-import javax.swing.JOptionPane;
-
 import fstm.projet.controller.Diagnostic_CTR;
-import fstm.projet.model.bo.*;
+import fstm.projet.model.bo.Client;
+import fstm.projet.model.bo.Maladie_chronique;
+import fstm.projet.model.bo.Region;
+import fstm.projet.model.bo.Symptoms;
 import fstm.projet.model.dao.DAOClient;
 
+import javax.swing.*;
 import javax.swing.GroupLayout.Alignment;
-import javax.swing.GroupLayout;
 import javax.swing.LayoutStyle.ComponentPlacement;
-import javax.swing.JLabel;
-import java.awt.Color;
-import javax.swing.JButton;
+import java.awt.*;
+import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.IOException;
+import java.util.Vector;
 
 public class Acueil extends JFrame {
 

@@ -1,20 +1,15 @@
 package fstm.projet.model.dao;
 
-import java.util.ArrayList;
-
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
-
-import com.mongodb.BasicDBObject;
 import com.mongodb.DB;
 import com.mongodb.DBCollection;
 import com.mongodb.DBCursor;
 import com.mongodb.DBObject;
 import com.mongodb.util.JSON;
-
-import fstm.projet.model.bo.Region;
 import fstm.projet.model.bo.Symptoms;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.util.ArrayList;
 
 public class DAOSymptom implements IDAOSymptom {
 

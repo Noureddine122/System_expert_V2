@@ -3,7 +3,6 @@ package fstm.projet.model.bo;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Calendar;
-import java.util.Vector;
 
 
 public class Client implements Serializable {

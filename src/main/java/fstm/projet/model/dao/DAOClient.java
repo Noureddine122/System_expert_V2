@@ -1,28 +1,16 @@
 package fstm.projet.model.dao;
 
-import java.net.UnknownHostException;
-import java.time.LocalDate;
-import java.util.ArrayList;
-import java.util.Objects;
-import java.util.Vector;
-
+import com.mongodb.*;
+import com.mongodb.util.JSON;
+import fstm.projet.model.bo.*;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import com.mongodb.BasicDBObject;
-import com.mongodb.DB;
-import com.mongodb.DBCollection;
-import com.mongodb.DBCursor;
-import com.mongodb.DBObject;
-import com.mongodb.util.JSON;
-
-import fstm.projet.model.bo.Client;
-import fstm.projet.model.bo.Compte;
-import fstm.projet.model.bo.Diagnostic;
-import fstm.projet.model.bo.Maladie_chronique;
-import fstm.projet.model.bo.Region;
-import fstm.projet.model.bo.Symptoms;
+import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.Objects;
+import java.util.Vector;
 
 public class DAOClient implements IDAOClient {
 

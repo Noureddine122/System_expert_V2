@@ -1,12 +1,10 @@
 package fstm.projet.model.dao;
 
-import java.util.ArrayList;
-import java.util.Vector;
-
 import fstm.projet.model.bo.Client;
-import fstm.projet.model.bo.Diagnostic;
 import fstm.projet.model.bo.Maladie_chronique;
 import fstm.projet.model.bo.Region;
+
+import java.util.Vector;
 
 /**
  * @author noureddine

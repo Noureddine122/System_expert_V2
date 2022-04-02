@@ -1,30 +1,12 @@
 package fstm.projet.view;
 
-import java.awt.BorderLayout;
-
-
-import java.awt.EventQueue;
-
-import javax.swing.JFrame;
-import javax.swing.JPanel;
-import javax.swing.border.EmptyBorder;
-
-
-import javax.swing.JLabel;
-import javax.swing.JOptionPane;
-
-import fstm.projet.model.bo.Client;
-import fstm.projet.model.bo.DroolsTest;
-
 import com.toedter.calendar.JDateChooser;
 
-import fstm.projet.controller.Diagnostic_CTR;
-
-import javax.swing.JButton;
-import java.awt.event.ActionListener;
-import java.time.LocalDate;
-import java.util.Calendar;
+import javax.swing.*;
+import javax.swing.border.EmptyBorder;
+import java.awt.*;
 import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 public class FRclient extends JFrame {
 

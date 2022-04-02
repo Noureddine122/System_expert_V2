@@ -1,13 +1,12 @@
 package fstm.projet.model.bo;
 
-import java.io.Serializable;
-import java.time.LocalDate;
-import java.util.ArrayList;
-import java.util.Vector;
-
 import org.kie.api.KieServices;
 import org.kie.api.runtime.KieContainer;
 import org.kie.api.runtime.KieSession;
+
+import java.io.Serializable;
+import java.time.LocalDate;
+import java.util.Vector;
 
 public class Diagnostic implements Serializable {
 

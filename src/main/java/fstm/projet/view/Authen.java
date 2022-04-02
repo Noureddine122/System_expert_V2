@@ -1,35 +1,14 @@
 package fstm.projet.view;
 
 
-import java.awt.EventQueue;
-
-import javax.swing.JFrame;
-import javax.swing.JPanel;
-import javax.swing.border.EmptyBorder;
-
 import fstm.projet.controller.Diagnostic_CTR;
 import fstm.projet.model.bo.Client;
 
-import java.awt.Color;
-import java.awt.Button;
-import java.awt.SystemColor;
-import javax.swing.JTextField;
-import javax.swing.JSeparator;
-import javax.swing.JLabel;
-import javax.swing.JOptionPane;
-import javax.swing.JPasswordField;
-import javax.swing.ImageIcon;
-import javax.swing.SwingConstants;
-import java.awt.Font;
-import java.awt.HeadlessException;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
-import java.awt.event.MouseMotionAdapter;
+import javax.swing.*;
+import javax.swing.border.EmptyBorder;
+import java.awt.*;
+import java.awt.event.*;
 import java.io.IOException;
-
-import javax.swing.JButton;
-import java.awt.event.ActionListener;
-import java.awt.event.ActionEvent;
 
 public class Authen extends JFrame {
 

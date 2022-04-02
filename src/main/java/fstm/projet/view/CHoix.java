@@ -1,17 +1,11 @@
 package fstm.projet.view;
 
-import java.awt.BorderLayout;
-import java.awt.EventQueue;
-
-import javax.swing.JFrame;
-import javax.swing.JPanel;
-import javax.swing.border.EmptyBorder;
-
 import fstm.projet.model.bo.Client;
 
-import javax.swing.JButton;
-import java.awt.event.ActionListener;
+import javax.swing.*;
+import javax.swing.border.EmptyBorder;
 import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 public class CHoix extends JFrame {
 

@@ -105,8 +105,8 @@ public static void rempliTable(DefaultTableModel model,Client c) {
     }
 
     public static void diagoniser(Client c, Vector<Symptoms> sys, Vector<Maladie_chronique> mal, double temperature, Region r) throws IOException, ClassNotFoundException {
-       // c.setMaladies(mal);
-        Socketinter socketinter = new Socketinter(sys, c, temperature, r,mal);
+        // c.setMaladies(mal);
+        Socketinter socketinter = new Socketinter(sys, c, temperature, r, mal);
         System.out.println(c.getCmptCompte().getEmail());
         Socket socket = new Socket(host, port);
         System.out.println("Connected.................");
@@ -266,17 +266,17 @@ return daoClient.Authentification(email, passString);*/
             font.setStyle(Font.BOLD);
             font.setColor(BaseColor.LIGHT_GRAY);
             document.add(new Chunk("\nliste des maladies chronique\n ", font));
-            String symString = "  ";
+            StringBuilder symString = new StringBuilder("  ");
             for (Maladie_chronique s : c.getDiagnostics().get(idr - 1).getMaladies()) {
-                symString = symString + "     " + s.getNom();
+                symString.append("     ").append(s.getNom());
             }
-            document.add(new Paragraph(symString));
+            document.add(new Paragraph(symString.toString()));
             document.add(new Chunk("\nliste de symptom\n ", font));
-            symString = "  ";
+            symString = new StringBuilder("  ");
             for (Symptoms s : c.getDiagnostics().get(idr - 1).getMysymtoms()) {
-                symString = symString + "     " + s.designation;
+                symString.append("     ").append(s.designation);
             }
-            document.add(new Paragraph(symString));
+            document.add(new Paragraph(symString.toString()));
             font.setSize(15);
             font.setStyle(Font.BOLD);
             font.setColor(BaseColor.BLUE);

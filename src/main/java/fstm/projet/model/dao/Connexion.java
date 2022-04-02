@@ -5,6 +5,9 @@ import java.net.UnknownHostException;
 import com.mongodb.*;
 
 
+/**
+ * @author noureddine
+ */
 public class Connexion {
 
     public static DB getConnex() {

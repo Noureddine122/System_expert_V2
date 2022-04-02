@@ -10,6 +10,7 @@ public class Region implements Serializable {
     private int nombre_contamines;
     private int nombre_habitant;
 
+
     public boolean haut_risque() {
 
         double niveau = nombre_contamines * 100000 / nombre_habitant;

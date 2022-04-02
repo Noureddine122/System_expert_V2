@@ -144,6 +144,7 @@ public class DAOClient implements IDAOClient {
 
                 for (int i = 0; i < json.length(); i++) {
 
+                    ///////////// Maladies
                     JSONArray json3 = json.getJSONObject(i).getJSONArray("Maladies_Chronique");
                     for (int j = 0; j < Objects.requireNonNull(json3).length(); j++) {
 
@@ -158,9 +159,13 @@ public class DAOClient implements IDAOClient {
                         symptoms.add(new Symptoms(json2.getJSONObject(j).getString("designation"), json2.getJSONObject(j).getInt("_idSy")));
                     }
 
-                    diagnostics.add(new Diagnostic(symptoms, json.getJSONObject(i).getDouble("resultat"), cli, LocalDate.parse(json.getJSONObject(i).getString("date")), json.getJSONObject(i).getDouble("Temperature"), new DAORegion().findbyidRegion(json.getJSONObject(i).getInt("Region")),chroniques));
-
-
+                    diagnostics.add(new Diagnostic(symptoms,
+                            json.getJSONObject(i).getDouble("resultat"),
+                            cli,
+                            LocalDate.parse(json.getJSONObject(i).getString("date")),
+                            json.getJSONObject(i).getDouble("Temperature"),
+                            new DAORegion().findbyidRegion(json.getJSONObject(i).getInt("Region")),
+                            chroniques));
                 }
                 cli.setDiagnostics(diagnostics);
 
@@ -191,7 +196,7 @@ public class DAOClient implements IDAOClient {
             maladies.add(sYSDbObject);
         }
         DBObject doc = new BasicDBObject("Mysymtoms", symptomsArrayList)
-                .append("Maladies_Chronique",maladies)
+                .append("Maladies_Chronique", maladies)
                 .append("resultat", diag.get_possi_presence())
                 .append("Temperature", diag.getTemperature())
                 .append("Region", diag.getRegion().getId_RE())

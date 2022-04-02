@@ -84,7 +84,7 @@ public class SocketController implements Runnable {
         DroolsTest d = new DroolsTest();
         System.out.println(socke.Mysymtoms.toString());
         Docteur doc = new Docteur(1, "achiban", "nourddine");
-       // new DAOClient().updateMaladie(socke.mald, socke.MyClient.getCmptCompte().getEmail());
+        // new DAOClient().updateMaladie(socke.mald, socke.MyClient.getCmptCompte().getEmail());
 
         Diagnostic diag = new Diagnostic(1, socke.MyClient, socke.Mysymtoms, doc);
         diag.setTemperature(socke.temperaturee);

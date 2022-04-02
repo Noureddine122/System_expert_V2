@@ -11,7 +11,7 @@ import org.kie.api.runtime.KieSession;
  */
 public class ProcessTest implements Serializable {
 
-    public static final void main(String[] args) {
+    public static void main(String[] args) {
         try {
             // load up the knowledge base
             KieServices ks = KieServices.Factory.get();

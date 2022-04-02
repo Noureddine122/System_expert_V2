@@ -11,6 +11,7 @@ public class Symptoms implements Serializable {
         id_Sym = I;
     }
 
+    @Override
     public String toString() {
         return designation + "  " + id_Sym;
     }
